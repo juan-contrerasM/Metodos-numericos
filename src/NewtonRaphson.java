@@ -8,7 +8,7 @@ public class NewtonRaphson {
         double x1 = 0;
         double error = Double.MAX_VALUE; // Iniciamos con un error grande
 
-        System.out.printf("%-10s %-12s %-12s %-12s %-12s %n", "Iteración", "X_n", "f(X_n)","f(derivada)", "Error %");
+        System.out.printf("%-10s %-12s %-12s %-12s %-12s%n", "Iteración", "X_n", "f(X_n)","f(derivada)", "Error %");
 
         while (error > tolerancia && iteracion <= maxIteraciones) {
             double fX0 = funcion.apply(x0);
@@ -27,7 +27,7 @@ public class NewtonRaphson {
             error = Math.abs((x1 - x0) / x1) * 100;
             x0 = x1;
             // Imprimir la iteración actual
-            System.out.printf("%-10d %-12.6f %-12.6f %-12.6f  %-12.6f%n", iteracion, x0, fX0, derivadaFX0, error);
+            System.out.printf("%-10d %-12.9f %-12.9f %-12.9f  %-12.9f%n", iteracion, x0, fX0, derivadaFX0, error);
 
             // Actualizar el valor de x0 para la siguiente iteración
 
@@ -44,13 +44,13 @@ public class NewtonRaphson {
 
     public static void main(String[] args) {
         // Definir otra función f(x) = x^2 - 2 (la raíz cuadrada de 2)
-        Function<Double, Double> funcion = (x) -> 3*x+Math.sin(x)-Math.exp(-x);
+        Function<Double, Double> funcion = (x) -> Math.cos(x)-x;
         // Definir su derivada f'(x) = 2x
-        Function<Double, Double> derivada = (x) -> 3+Math.cos(x)+Math.exp(-x);
+        Function<Double, Double> derivada = (x) -> -Math.sin(x)-1;
 
         // Valores iniciales
-        double x0 = 0; // Aproximación inicial
-        double tolerancia = 0.001; // Tolerancia (1e-3)
+        double x0 = 1; // Aproximación inicial
+        double tolerancia = 0.01; // Tolerancia (1e-3)
         int maxIteraciones = 100; // Máximo número de iteraciones
 
         // Ejecutar el método de Newton-Raphson

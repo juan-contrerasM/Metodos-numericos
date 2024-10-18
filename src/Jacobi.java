@@ -49,15 +49,15 @@ public class Jacobi {
     public static void main(String[] args) {
         // Ejemplo de un sistema de ecuaciones: Ax = b
         double[][] A = {
-                { 10, 3, 1},
-                { 5, -10, 3},
-                { 1, 3, 10}
+                { 12, 3, -5},
+                { 1, 5, 3},
+                { 3, 7, 13}
 
         };
-        double[] b = { 14,-5,14 };
+        double[] b = { 1,28,76 };
         double[] x0 = { 1, 0, 1 }; // Vector inicial
 
-        double tolerancia = 0.0001; // Tolerancia para la convergencia
+        double tolerancia = 0.005; // Tolerancia para la convergencia
         int maxIteraciones = 100; // Número máximo de iteraciones
 
         // Ejecutar el método de Jacobi
